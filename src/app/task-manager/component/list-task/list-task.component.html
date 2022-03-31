@@ -1,5 +1,6 @@
 <div class="task-group">
   <div class="task-list">
+    <!--    Show data to see data changes-->
     <div *ngFor="let item of taskList">
       <pre>{{item | json}}</pre>
     </div>
@@ -11,7 +12,8 @@
           <ng-template aHeader let-toggle="toggle">
             <div class="task-wrapper-header">
               <div class="task-wrapper-title">
-                <input type="checkbox" (change)="selectionModel.toggle(item)" [checked]="selectionModel.isSelected(item)">
+                <input type="checkbox" (change)="selectionModel.toggle(item)"
+                       [checked]="selectionModel.isSelected(item)">
                 Do homework
               </div>
               <div class="task-wrapper-button">
