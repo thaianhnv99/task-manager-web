@@ -1,0 +1,63 @@
+.task-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  .task-list {
+    padding: 1.5rem 2rem;
+
+    .task-wrapper {
+      &-title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        width: max-content;
+        margin-right: 1rem;
+      }
+
+      &-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 1rem;
+      }
+
+      &-content {
+        margin: 1.5rem;
+      }
+
+      &-button {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+
+    [type='checkbox'] {
+      width: auto;
+      margin-right: .5rem;
+    }
+  }
+
+  .task-selected {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem;
+    border-top: 1px #8d8d8d solid;
+    background-color: aliceblue;
+
+    &-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+}

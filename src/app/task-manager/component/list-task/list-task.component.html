@@ -1,0 +1,51 @@
+<div class="task-group">
+  <div class="task-list">
+    <div *ngFor="let item of taskList">
+      <pre>{{item | json}}</pre>
+    </div>
+
+    <input type="text" class="task-input mb-1" placeholder="Search..." [formControl]="searchTask">
+    <div class="task-wrapper" *ngIf="taskList.length; else tmpEmpty">
+      <app-accordion [collapsing]="true">
+        <accordion-item *ngFor="let item of taskList">
+          <ng-template aHeader let-toggle="toggle">
+            <div class="task-wrapper-header">
+              <div class="task-wrapper-title">
+                <input type="checkbox" (change)="selectionModel.toggle(item)" [checked]="selectionModel.isSelected(item)">
+                Do homework
+              </div>
+              <div class="task-wrapper-button">
+                <button type="button" class="color-aqua" (click)="toggle()">Detail</button>
+                <button type="button" class="color-orange" (click)="remove(item)">Remove</button>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template aContent>
+            <div class="task-wrapper-content">
+              <app-task-form [piorityList]="piorityList"
+                             [taskData]="item"
+                             (changeTask)="updateTask($event)">
+              </app-task-form>
+            </div>
+          </ng-template>
+        </accordion-item>
+      </app-accordion>
+    </div>
+  </div>
+
+  <div class="task-selected" *ngIf="taskSelected.length">
+    <div class="task-selected-label">
+      <div class="task-label">Bulk Action:</div>
+      <small class="task-label">(selected {{+taskSelected.length}})</small>
+    </div>
+    <div class="task-selected-btn">
+      <button type="button" class="color-blue">Done</button>
+      <button type="button" class="color-orange" (click)="removeTaskSelect()">Remove</button>
+    </div>
+  </div>
+</div>
+<ng-template #tmpEmpty>
+  <div class="list-empty">
+    Không có bản ghi nào!!
+  </div>
+</ng-template>

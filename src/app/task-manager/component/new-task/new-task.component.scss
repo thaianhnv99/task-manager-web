@@ -1,0 +1,35 @@
+.create-task {
+  .task-title {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .task-label {
+    margin-bottom: .3rem;
+  }
+
+  .task-button {
+    width: 100%;
+    margin-top: 3.75rem;
+  }
+
+  .task-form-group {
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+      width: 100%;
+    }
+
+    @media screen and (min-width: 1200px) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+
+  .invalid-input {
+    color: red;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="create-task">
+  <div class="task-title">New Task</div>
+  <form [formGroup]="taskForm" class="task-form">
+    <div class="mb-1">
+      <input type="text" class="task-input" placeholder="Add new task..."
+             formControlName="taskTitle"/>
+      <small class="invalid-input"
+             *ngIf="taskForm.get('taskTitle')?.touched && taskForm.get('taskTitle')?.hasError('required')">
+        Trường này không được bỏ trống
+      </small>
+    </div>
+    <div class="task-form-info mb-1">
+      <label class="task-label">Description</label>
+      <textarea class="task-input" formControlName="description"></textarea>
+    </div>
+
+    <div class="task-form-group mb-1">
+      <div class="task-form-group__item mb-1">
+        <label class="task-label">Duo Date</label>
+        <input type="date" class="task-input" [min]="minDate" formControlName="duoDate">
+      </div>
+
+      <div class="task-form-group__item">
+        <label class="task-label">Piority</label>
+        <app-piority-select class="task-input"
+                            [list]="piorityList"
+                            formControlName="piority"></app-piority-select>
+      </div>
+    </div>
+    <button type="submit" class="task-button task-btn-submit" (click)="addTask()">Add</button>
+  </form>
+</div>

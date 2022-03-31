@@ -1,0 +1,22 @@
+.wrapper-task {
+  display: grid;
+  //grid-template-columns: 1fr;
+  grid-template-columns: 1fr 2fr;
+  height: auto;
+  margin: 2rem;
+
+  &-item {
+    border: 1px #8d8d8d solid;
+
+    &:first-child {
+      border-right: unset;
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  //@media only screen and (min-width: 1200px) {
+  //  grid-template-columns: 1fr 2fr;
+  //}
+
+}
+
